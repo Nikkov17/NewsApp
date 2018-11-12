@@ -59,6 +59,7 @@ function cardFactory(item) {
     let itemLinkToOrigin = document.createElement('a');
     let itemImage = document.createElement('img');
     let itemArticle = document.createElement('article');
+    let itemContent = document.createElement('article');
 
     itemTitle.classList = 'news-item-title';
     itemTitle.innerText = title;
@@ -89,10 +90,14 @@ function cardFactory(item) {
 
     itemArticle.classList = 'news-item-article';
     itemArticle.innerText = description;
+    
+    itemContent.classList = 'news-item-article';
+    itemContent.innerText = content;
 
     element.className = 'news-item';
     element.appendChild(itemHeader);
     element.appendChild(itemArticle);
+    element.appendChild(itemContent);
 
     newsContainer.appendChild(element);
 };
