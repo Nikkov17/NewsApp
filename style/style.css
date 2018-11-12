@@ -55,11 +55,20 @@
 .theme-input:focus {
     outline-width: 0;
 }
-@media screen and (max-device-width: 1025px) {
+@media screen and (max-device-width: 1025px) and (min-device-width: 751px) {
     .theme-input {
-        width: 50%;
-        height: 4vw;
-        font-size: 3vw;
+        width: 80%;
+        height: 3vw;
+        border-radius: 10px;
+        font-size: 2vw;
+    }
+}
+@media screen and (max-device-width: 750px) {
+    .theme-input {
+        width: 80%;
+        height: 6vw;
+        border-radius: 15px;
+        font-size: 4.5vw;
     }
 }
 
@@ -78,16 +87,29 @@
 .search-button:hover {
     background-color: rgb(209, 209, 164);
 }
-@media screen and (max-device-width: 1025px) {
+@media screen and (max-device-width: 1025px) and (min-device-width: 751px) {
     .search-button {
-        width: 6vw;
-        height: 6vw;
+        width: 5vw;
+        height: 5vw;
+        font-size: 2.5vw;
+    }
+}
+@media screen and (max-device-width: 750px) {
+    .search-button {
+        width: 7vw;
+        height: 7vw;
+        font-size: 3vw;
     }
 }
 
 .error-notification {
     color: white;
     font-style: italic;
+}
+@media screen and (max-device-width: 1025px) {
+    .error-notification {
+        font-size: 3vw;
+    }
 }
 
 .main {
