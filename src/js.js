@@ -80,12 +80,13 @@ function cardFactory(item) {
     itemHeaderInfo.appendChild(itemPublishedAt);
     itemHeaderInfo.appendChild(itemLinkToOrigin);
 
-    itemImage.classList = 'news-item-header-image';
-    itemImage.src = urlToImage;
-
     itemHeader.classList = 'news-item-header';
     itemHeader.appendChild(itemHeaderInfo);
-    itemHeader.appendChild(itemImage);
+    if (urlToImage) {
+        itemImage.classList = 'news-item-header-image';
+        itemImage.src = urlToImage;
+        itemHeader.appendChild(itemImage);
+    };
 
     itemArticle.classList = 'news-item-article';
     itemArticle.innerText = description;
