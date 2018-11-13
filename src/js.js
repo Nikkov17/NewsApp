@@ -42,9 +42,9 @@ function errorNotification() {
 }
 
 function insertItems(articlesArray) {
-    articlesArray.map((item) => {
+    for (let item of articlesArray) {
         cardFactory(item);
-    })
+    };
 };
 
 function cardFactory(item) {
