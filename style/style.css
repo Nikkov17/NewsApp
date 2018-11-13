@@ -138,7 +138,7 @@
     border: 1px solid rgb(129, 122, 79); 
     border-radius: 10px;
     width: 100%; 
-    background-color: white;
+    background-color: #eeeeef;
     color: black;
     display: flex;
     flex-direction: column;
