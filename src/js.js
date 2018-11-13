@@ -19,9 +19,8 @@ function SendFetch(value) {
     let url = `https://newsapi.org/v2/top-headlines?` +
         `sources=${value}&` +
         `apiKey=${apiKey}`;
-    let request = new Request(url);
 
-    fetch(request)
+    fetch(url)
         .then((response) => {
             let result = response.json();
             return result;
@@ -29,7 +28,7 @@ function SendFetch(value) {
         .then((result) => {
             insertItems(result.articles);
         })
-        .catch((error) => {
+        .catch(() => {
             errorNotification();
         })
 };
