@@ -86,6 +86,7 @@
 }
 .search-button:hover {
     background-color: rgb(209, 209, 164);
+    cursor: pointer;
 }
 @media screen and (max-device-width: 1025px) and (min-device-width: 751px) {
     .search-button {
