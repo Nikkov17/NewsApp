@@ -105,12 +105,18 @@
 
 .error-notification {
     color: white;
+    margin-top: 5px;
     font-style: italic;
+    visibility: hidden;
 }
 @media screen and (max-device-width: 1025px) {
     .error-notification {
         font-size: 3vw;
     }
+}
+
+.show {
+    visibility: visible;
 }
 
 .main {
