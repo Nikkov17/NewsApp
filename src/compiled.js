@@ -1,5 +1,3 @@
-"use strict";
-
 define(["exports", "./constants.js"], function (exports, _constants) {
   "use strict";
 
@@ -46,8 +44,6 @@ define(["exports", "./constants.js"], function (exports, _constants) {
 
   ;
 });
-"use strict";
-
 define(["exports"], function (exports) {
   "use strict";
 
@@ -65,8 +61,6 @@ define(["exports"], function (exports) {
     ERRORWINDOW: ERRORWINDOW
   };
 });
-"use strict";
-
 define(["exports", "./constants.js"], function (exports, _constants) {
   "use strict";
 
@@ -134,8 +128,10 @@ define(["exports", "./constants.js"], function (exports, _constants) {
               return _context.abrupt("return", fetch(url).then(function (response) {
                 result = response.json();
                 return result;
-              }).catch(function () {
-                errorNotification();
+              }).then(function (result) {
+                return result.articles;
+              }).catch(function (error) {
+                return error;
               }));
 
             case 2:
@@ -149,13 +145,7 @@ define(["exports", "./constants.js"], function (exports, _constants) {
   }
 
   ;
-
-  function errorNotification() {
-    _constants2.default.ERRORWINDOW.classList.add('show');
-  }
 });
-"use strict";
-
 define(["./constants.js", "./getdata.js", "./cardfactory.js"], function (_constants, _getdata, _cardfactory) {
   "use strict";
 
@@ -226,19 +216,27 @@ define(["./constants.js", "./getdata.js", "./cardfactory.js"], function (_consta
               _constants2.default.ERRORWINDOW.classList.remove('show');
 
               value = this['0'].value;
-              _context.next = 6;
+              _context.prev = 4;
+              _context.next = 7;
               return (0, _getdata2.default)(value);
 
-            case 6:
+            case 7:
               articlesArray = _context.sent;
               insertItems(articlesArray);
+              _context.next = 14;
+              break;
 
-            case 8:
+            case 11:
+              _context.prev = 11;
+              _context.t0 = _context["catch"](4);
+              errorNotification();
+
+            case 14:
             case "end":
               return _context.stop();
           }
         }
-      }, _callee, this);
+      }, _callee, this, [[4, 11]]);
     }));
     return _getElements.apply(this, arguments);
   }
@@ -271,6 +269,12 @@ define(["./constants.js", "./getdata.js", "./cardfactory.js"], function (_consta
     }
 
     ;
+  }
+
+  ;
+
+  function errorNotification() {
+    _constants2.default.ERRORWINDOW.classList.add('show');
   }
 
   ;

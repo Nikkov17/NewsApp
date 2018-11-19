@@ -1,4 +1,11 @@
 {
-  "presets": ["@babel/env"],
-  "plugins": ["transform-es2015-modules-amd"]
+  "presets": [
+    ["@babel/preset-env", {
+        "modules": "false",
+        "targets": {
+            "browsers": ["last 2 versions", "ie >= 10"]
+        }
+    }]
+],
+  "plugins": ["babel-plugin-transform-es2015-modules-amd"]
 }

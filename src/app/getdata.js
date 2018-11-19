@@ -11,11 +11,10 @@ export default async function SendFetch(value) {
             result = response.json();
             return result;
         })
-        .catch(() => {
-            errorNotification();
+        .then((result) => {
+            return result.articles
+        })
+        .catch((error) => {
+            return error;
         });
 };
-
-function errorNotification() {
-    constants.ERRORWINDOW.classList.add('show');
-}

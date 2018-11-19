@@ -13,14 +13,22 @@ async function getElements(event) {
     constants.ERRORWINDOW.classList.remove('show');
     value = this['0'].value;
 
-    articlesArray = await sendFetch(value)
-    insertItems(articlesArray);
+    try {
+        articlesArray = await sendFetch(value)
+        insertItems(articlesArray);    
+    } catch {
+        errorNotification();
+    }
 };
 
 function insertItems(articlesArray) {
     for (let item of articlesArray) {
         cardFactory(item);
     };
+};
+
+function errorNotification() {
+    constants.ERRORWINDOW.classList.add('show');
 };
 
 String.prototype.replaceAll = function(search, replace){
