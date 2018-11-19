@@ -1,6 +1,6 @@
 import constants from './constants.js';
 
-export default function SendFetch(value) {
+export default async function SendFetch(value) {
     let result;
     let url = `https://newsapi.org/v2/top-headlines?` +
         `sources=${value}&` +
@@ -11,4 +11,11 @@ export default function SendFetch(value) {
             result = response.json();
             return result;
         })
+        .catch(() => {
+            errorNotification();
+        });
 };
+
+function errorNotification() {
+    constants.ERRORWINDOW.classList.add('show');
+}

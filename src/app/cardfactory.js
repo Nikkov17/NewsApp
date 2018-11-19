@@ -1,6 +1,6 @@
 import constants from './constants.js';
 
-export default function cardFactory(item) {
+export default function cardFactoryFunction(item) {
     let { author, title, content, description, publishedAt, urlToImage, url } = item;
     let insertString = 
     `<div class="news-item-header">

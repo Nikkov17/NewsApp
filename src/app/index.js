@@ -1,29 +1,21 @@
-import constants from './src/constants.js';
-import sendFetch from './src/getdata.js';
-import cardFactory from './src/cardfactory.js';
+import constants from './constants.js';
+import sendFetch from './getdata.js';
+import cardFactory from './cardfactory.js';
 
 constants.FORM.onsubmit = getElements;
 
-function getElements(event) {
+async function getElements(event) {
     let value;
+    let articlesArray;
 
     event.preventDefault();
     constants.NEWSCONTAINER.innerHTML = '';
     constants.ERRORWINDOW.classList.remove('show');
     value = this['0'].value;
 
-    sendFetch(value)
-    .then((result) => {
-        insertItems(result.articles);
-    })
-    .catch(() => {
-        errorNotification();
-    });
+    articlesArray = await sendFetch(value)
+    insertItems(articlesArray);
 };
-
-function errorNotification() {
-    constants.ERRORWINDOW.classList.add('show');
-}
 
 function insertItems(articlesArray) {
     for (let item of articlesArray) {
