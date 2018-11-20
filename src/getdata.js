@@ -14,12 +14,4 @@ export default async function SendFetch(value) {
         .then((result) => {
             return result.articles;
         })
-        .catch(() => {
-            errorNotification();
-        })
-};
-
-
-function errorNotification() {
-    constants.ERRORWINDOW.classList.add('show');
 };
