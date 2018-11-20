@@ -4,7 +4,8 @@ import cardFactory from './cardfactory.js';
 
 constants.FORM.onsubmit = getElements;
 
-async function getElements(event) {
+// async function getElements(event) {
+function getElements(event) {
     let value;
     let articlesArray;
 
@@ -13,12 +14,19 @@ async function getElements(event) {
     constants.ERRORWINDOW.classList.remove('show');
     value = this['0'].value;
 
-    try {
-        articlesArray = await sendFetch(value)
-        insertItems(articlesArray);    
-    } catch {
+    // try {
+    //     articlesArray = await sendFetch(value)
+    //     insertItems(articlesArray);    
+    // } catch {
+    //     errorNotification();
+    // }
+    sendFetch(value)
+    .then((result) => {
+        insertItems(result);
+    })
+    .catch(() => {
         errorNotification();
-    }
+    });
 };
 
 function insertItems(articlesArray) {
