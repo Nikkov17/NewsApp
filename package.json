@@ -4,8 +4,7 @@
   "description": "https://nikkov17.github.io/NewsApp/",
   "main": "index.js",
   "scripts": {
-    "build": "babel src/app --out-file src/compiled.js",
-    "watch": "babel src/app --watch --out-file src/compiled.js"
+    "build": "babel src -d bundle"
   },
   "repository": {
     "type": "git",
