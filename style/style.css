@@ -12,9 +12,15 @@
     height: 8vw;
     background-color: #0101FE;
     color: white;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 @media screen and (max-device-width: 1025px) {
     .header {
@@ -24,25 +30,47 @@
 
 .wrapper {
     width: 80%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 
 .form-container {
     width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
 }
 
 .form {
+    margin-top: 23px;
     width: 100%;
     height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 
 .theme-input {
@@ -109,7 +137,12 @@
     font-style: italic;
     visibility: hidden;
 }
-@media screen and (max-device-width: 1025px) {
+@media screen and (max-device-width: 1025px) and (min-device-width: 751px) {
+    .theme-input {
+        font-size: 2vw;
+    }
+}
+@media screen and (max-device-width: 750px) {
     .error-notification {
         font-size: 3vw;
     }
@@ -121,9 +154,15 @@
 
 .main {
     width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     padding-bottom: 20px;
 }
 @media screen and (max-device-width: 1025px) {
@@ -133,52 +172,92 @@
 }
 
 .news-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    /* align-items: center; */
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+}
+@media screen and (max-device-width: 1025px) {
+    .news-container {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+    }
 }
 
 .news-item {
     padding: 1%;
-    margin-top: 20px;
+    margin-top: 40px;
     border-radius: 10px;
-    width: 100%; 
+    width: 40%; 
     background-color: #eeeeef;
     color: black;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 @media screen and (max-device-width: 1025px) {
     .news-item {
+        width: 95%;
         margin-top: 40px;
         padding: 3%;
     }
 }
 
 .news-item-header {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-}
-@media screen and (max-device-width: 1025px) {
-    .news-item-header {
-        flex-direction: column;
-    }
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 
 .news-item-header-info {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: left;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: left;
+        -ms-flex-align: left;
+            align-items: left;
 }
 @media screen and (max-device-width: 1025px) {
     .news-item-header-info {
-        align-items: center;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
     }
 }
 
@@ -205,11 +284,20 @@
 }
 
 .news-item-header-image-container {
+    display:  -webkit-box;
+    display:  -ms-flexbox;
     display:  flex;
-    flex-direction:  column;
+    -webkit-box-orient:  vertical;
+    -webkit-box-direction:  normal;
+        -ms-flex-direction:  column;
+            flex-direction:  column;
     width:  100%;
-    align-items: center;
-    justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
 }
 
 .news-item-header-image {
