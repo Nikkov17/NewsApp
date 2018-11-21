@@ -1,4 +1,3 @@
-require("../node_modules/babel-polyfill/browser");
 import constants from './constants.js';
 import sendFetch from './getdata.js';
 import cardFactory from './cardfactory.js';
