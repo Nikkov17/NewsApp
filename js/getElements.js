@@ -1,17 +1,22 @@
 import constants from './constants.js';
 import sendFetch from './getdata.js';
-import cardFactory from './cardfactory.js';
+import errorNotification from './errornotification.js';
+import insertItems from './insertitems.js';
 
 constants.FORM.onsubmit = getElements;
 
-async function getElements(event) {
+export default async function getElements(event) {
     let value;
     let articlesArray;
 
-    event.preventDefault();
+    if(event) {
+        event.preventDefault();
+    }
     constants.NEWSCONTAINER.innerHTML = '';
     constants.ERRORWINDOW.classList.remove('show');
-    value = this['0'].value;
+    if(this) {
+        value = this['0'].value;
+    }
 
     try {
         articlesArray = await sendFetch(value)
@@ -19,16 +24,6 @@ async function getElements(event) {
     } catch {
         errorNotification();
     }
-};
-
-function insertItems(articlesArray) {
-    for (let item of articlesArray) {
-        cardFactory(item);
-    };
-};
-
-function errorNotification() {
-    constants.ERRORWINDOW.classList.add('show');
 };
 
 String.prototype.replaceAll = function(search, replace){
