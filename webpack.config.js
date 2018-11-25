@@ -6,6 +6,7 @@ const PATHS = {
 };
 
 module.exports = {
+  mode: 'production',
   entry: `${PATHS.source}/js/index.js`,
   output: {
     path: PATHS.build,
