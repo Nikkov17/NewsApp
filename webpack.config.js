@@ -7,6 +7,12 @@ const PATHS = {
 
 module.exports = {
   mode: 'production',
+  devServer: {
+    contentBase: path.join(__dirname, 'docs'),
+    compress: true,
+    port: 9000,
+    stats: 'errors-only'
+  },
   entry: `${PATHS.source}/js/index.js`,
   output: {
     path: PATHS.build,

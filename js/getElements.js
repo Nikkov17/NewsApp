@@ -9,10 +9,14 @@ export default async function getElements(event) {
     let value;
     let articlesArray;
 
-    event.preventDefault();
+    if(event) {
+        event.preventDefault();
+    }
     constants.NEWSCONTAINER.innerHTML = '';
     constants.ERRORWINDOW.classList.remove('show');
-    value = this['0'].value;
+    if(this) {
+        value = this['0'].value;
+    }
 
     try {
         articlesArray = await sendFetch(value)
