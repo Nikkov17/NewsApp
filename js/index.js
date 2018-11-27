@@ -5,6 +5,7 @@ import 'whatwg-fetch';
 import getElements from './getelements';
 import jsonFile from '../loaders/jsonFile.json';
 
+debugger;
 document.querySelector('.lazy-load-js-css').classList.add('hidden');
 
 //check my json loader
