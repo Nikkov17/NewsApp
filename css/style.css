@@ -314,3 +314,7 @@
     font-family: sans-serif;
     margin-top: 20px;
 }
+
+.lazy-load-js-css {
+    display: none;
+}
