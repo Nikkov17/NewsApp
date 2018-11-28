@@ -1,3 +1,8 @@
+import '../../styles/reset.css';
+import '../../styles/style.scss';
+import 'babel-polyfill';
+import 'whatwg-fetch';
+import jsonFile from '../jsonFile.json';
 import constants from './constants.js';
 import sendFetch from './getdata.js';
 import errorNotification from './errornotification.js';
@@ -8,6 +13,8 @@ constants.FORM.onsubmit = getElements;
 export default async function getElements(event) {
     let value;
     let articlesArray;
+
+    console.log(jsonFile);
 
     if(event) {
         event.preventDefault();

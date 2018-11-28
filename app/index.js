@@ -1,8 +1,9 @@
-import '../styles/reset.css';
-import '../styles/style.scss';
-import 'babel-polyfill';
-import 'whatwg-fetch';
-import getElements from './modules/getElements';
-import jsonFile from './jsonFile.json';
+const lazyLoadingButton = document.querySelector('.lazy-loading-button');
 
-console.log(jsonFile);
+lazyLoadingButton.addEventListener('click', loadBundle);
+
+function loadBundle() {
+    import('./modules/insertheader.js').then(() => {
+        import('../build/build.js');
+    });
+}

@@ -12,7 +12,7 @@ module.exports = {
     port: 9000,
     stats: 'errors-only'
   },
-  entry: `${PATHS.source}/app/index.js`,
+  entry: `${PATHS.source}/app/modules/getElements.js`,
   output: {
     path: PATHS.build,
     filename: 'build.js',
