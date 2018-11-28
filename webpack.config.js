@@ -2,13 +2,13 @@ const path = require('path');
 
 const PATHS = {
   source: path.join(__dirname, ''),
-  build: path.join(__dirname, 'docs'),
+  build: path.join(__dirname, 'build'),
 };
 
 module.exports = {
   mode: 'production',
   devServer: {
-    contentBase: path.join(__dirname, 'docs'),
+    contentBase: path.join(__dirname, ''),
     compress: true,
     port: 9000,
     stats: 'errors-only'
@@ -16,7 +16,7 @@ module.exports = {
   entry: `${PATHS.source}/js/index.js`,
   output: {
     path: PATHS.build,
-    filename: 'app.js',
+    filename: 'build.js',
   },
   module: {
     rules: [
@@ -40,7 +40,7 @@ module.exports = {
       },
       {
         test: /\.json$/,
-        loader: path.resolve('./loaders/jsonloader.js')
+        loader: path.resolve('./utils/jsonloader.js')
       }
     ],
   }
