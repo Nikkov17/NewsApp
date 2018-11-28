@@ -1,5 +1,5 @@
 import '../css/reset.css';
-import '../css/style.css';
+import '../css/style.scss';
 import 'babel-polyfill';
 import 'whatwg-fetch';
 import getElements from './getelements';
