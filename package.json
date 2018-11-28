@@ -4,8 +4,9 @@
   "description": "https://nikkov17.github.io/NewsApp/",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server",
-    "build": "webpack"
+    "dev": "webpack --mode development",
+    "prod": "webpack --mode production",
+    "start": "webpack-dev-server"
   },
   "repository": {
     "type": "git",
