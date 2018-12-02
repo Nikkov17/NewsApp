@@ -1,9 +1,24 @@
-const lazyLoadingButton = document.querySelector('.lazy-loading-button');
+import '../styles/reset.css';
+import '../styles/style.scss';
+import insertHeader from './modules/insertheader';
+import constants from './modules/constants';
+import jsonFile from './jsonFile.json';
 
-lazyLoadingButton.addEventListener('click', loadBundle);
+console.log(jsonFile);
 
-function loadBundle() {
-    import('./modules/insertheader.js').then(() => {
-        import('../build/build.js');
-    });
+constants.FORM.onsubmit = searchAndLoadBundle;
+
+function searchAndLoadBundle(event) {
+    let value;
+
+    if(event) {
+        event.preventDefault();
+    }
+
+    debugger;
+    value = this['0'].value;
+
+    import('./modules/getElements').then((module) => {
+        module.default(value);
+    })
 }
