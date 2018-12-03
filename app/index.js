@@ -15,7 +15,6 @@ function searchAndLoadBundle(event) {
         event.preventDefault();
     }
 
-    debugger;
     value = this['0'].value;
 
     import('./modules/getElements').then((module) => {

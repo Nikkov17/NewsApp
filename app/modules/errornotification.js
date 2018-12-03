@@ -1,5 +1,10 @@
 import constants from './constants.js';
 
-export default function errorNotification() {
-    constants.ERRORWINDOW.classList.add('show');
-};
+class ErrorsHandler {
+    errorNotification() {
+        constants.ERRORWINDOW.innerText = 'Entered news channel nonexistent or unavailable!';
+        constants.ERRORWINDOW.classList.add('show');
+    };
+}
+
+export default new ErrorsHandler();

@@ -15,7 +15,7 @@ export default async function getElements(value) {
         insertItems(articlesArray);
     } catch {
         import('./errornotification').then((module) => {
-            module.default();
+            module.default.errorNotification();
         })
     }
 };
