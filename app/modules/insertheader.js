@@ -8,7 +8,7 @@ const insertHeader = function() {
                         <input type="text" placeholder="abc-news, bbc-news" class="theme-input">
                         <button class="search-button fas fa-search" type="submit"></button>
                     </form>
-                    <div class="error-notification"></div>
+                    <div class="error-notification">message</div>
                 </div>
             </div>`;
 
