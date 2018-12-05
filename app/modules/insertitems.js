@@ -1,7 +1,9 @@
 import cardFactory from './cardfactory.js';
+import articlesModel from './articlesmodel';
 
-export default function insertItems(articlesArray) {
-    for (let item of articlesArray) {
+export default function insertItems() {
+    let articles = articlesModel.get();
+    for (let item of articles) {
         cardFactory(item);
     };
 };

@@ -3,6 +3,7 @@ import 'whatwg-fetch';
 import constants from './constants.js';
 import sendFetch from './getdata.js';
 import insertItems from './insertitems.js';
+import articlesModel from './articlesmodel';
 
 export default async function getElements(value) {
     let articlesArray;
@@ -12,7 +13,10 @@ export default async function getElements(value) {
 
     try {
         articlesArray = await sendFetch(value)
-        insertItems(articlesArray);
+        if (articlesModel.checkArticlesUniqueness(articlesArray)) {
+            articlesModel.set(articlesArray);
+            insertItems();
+        }
     } catch {
         import('./errornotification').then((module) => {
             module.default.errorNotification();
