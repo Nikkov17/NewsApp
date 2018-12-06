@@ -8,5 +8,6 @@ class ErrorsHandler {
 }
 
 const errorMessage = new ErrorsHandler();
+Object.freeze(errorMessage);
 
 export default errorMessage;
