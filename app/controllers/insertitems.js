@@ -1,5 +1,5 @@
-import cardFactory from './cardfactory.js';
-import articlesModel from './articlesmodel';
+import cardFactory from '../views/cardfactory';
+import articlesModel from '../models/articlesmodel';
 
 export default function insertItems() {
     let articles = articlesModel.get();

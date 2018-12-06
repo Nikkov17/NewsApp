@@ -1,4 +1,4 @@
-import constants from './constants.js';
+import constants from '../constants';
 import fetchFactory from './fetchfactory';
 
 export default async function SendFetch(value) {

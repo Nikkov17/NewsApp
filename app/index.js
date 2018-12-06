@@ -1,7 +1,7 @@
 import '../styles/reset.css';
 import '../styles/style.scss';
-import insertHeader from './modules/insertheader';
-import constants from './modules/constants';
+import insertHeader from './views/insertheader';
+import constants from './constants';
 import jsonFile from './jsonFile.json';
 
 console.log(jsonFile);
@@ -17,7 +17,7 @@ function searchAndLoadBundle(event) {
 
     value = this['0'].value;
 
-    import('./modules/getElements').then((module) => {
+    import('./controllers/getElements').then((module) => {
         module.default(value);
     })
 }

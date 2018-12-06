@@ -1,4 +1,4 @@
-import constants from './constants.js';
+import constants from '../constants';
 
 export default function cardFactoryFunction(item) {
     let { author, title, content, description, publishedAt, urlToImage, url } = item;

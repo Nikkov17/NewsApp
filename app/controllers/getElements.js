@@ -1,9 +1,9 @@
 import 'babel-polyfill';
 import 'whatwg-fetch';
-import constants from './constants.js';
-import sendFetch from './getdata.js';
-import insertItems from './insertitems.js';
-import articlesModel from './articlesmodel';
+import constants from '../constants';
+import sendFetch from './getdata';
+import insertItems from './insertitems';
+import articlesModel from '../models/articlesmodel';
 
 export default async function getElements(value) {
     let articlesArray;

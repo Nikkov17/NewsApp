@@ -199,6 +199,17 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./app/constants.js":
+/*!**************************!*\
+  !*** ./app/constants.js ***!
+  \**************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [exports], __WEBPACK_AMD_DEFINE_RESULT__ = (function (exports) {\n  \"use strict\";\n\n  Object.defineProperty(exports, \"__esModule\", {\n    value: true\n  });\n  var APIKEY = 'b1489445b9fb4d2b98dbf211c114989b';\n  var NEWSCONTAINER = document.querySelector('.news-container');\n  var FORM = document.querySelector('.form');\n  var ERRORWINDOW = document.querySelector('.error-notification');\n  var METHODS = {\n    GET: 'GET',\n    POST: 'POST',\n    PUT: 'PUT'\n  };\n  var STATUS = {\n    ERROR: 'error',\n    SUCCESS: 'ok'\n  };\n  exports.default = {\n    APIKEY: APIKEY,\n    NEWSCONTAINER: NEWSCONTAINER,\n    FORM: FORM,\n    ERRORWINDOW: ERRORWINDOW,\n    METHODS: METHODS,\n    STATUS: STATUS\n  };\n}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),\n\t\t\t\t__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));\n\n//# sourceURL=webpack:///./app/constants.js?");
+
+/***/ }),
+
 /***/ "./app/index.js":
 /*!**********************!*\
   !*** ./app/index.js ***!
@@ -206,7 +217,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(/*! ./modules/insertheader */ \"./app/modules/insertheader.js\"), __webpack_require__(/*! ./modules/constants */ \"./app/modules/constants.js\"), __webpack_require__(/*! ./jsonFile.json */ \"./app/jsonFile.json\"), __webpack_require__(/*! ../styles/reset.css */ \"./styles/reset.css\"), __webpack_require__(/*! ../styles/style.scss */ \"./styles/style.scss\")], __WEBPACK_AMD_DEFINE_RESULT__ = (function (_insertheader, _constants, _jsonFile) {\n  \"use strict\";\n\n  var _insertheader2 = _interopRequireDefault(_insertheader);\n\n  var _constants2 = _interopRequireDefault(_constants);\n\n  var _jsonFile2 = _interopRequireDefault(_jsonFile);\n\n  function _interopRequireDefault(obj) {\n    return obj && obj.__esModule ? obj : {\n      default: obj\n    };\n  }\n\n  console.log(_jsonFile2.default);\n  _constants2.default.FORM.onsubmit = searchAndLoadBundle;\n\n  function searchAndLoadBundle(event) {\n    var value;\n\n    if (event) {\n      event.preventDefault();\n    }\n\n    value = this['0'].value;\n    Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(1)]).then(__webpack_require__.t.bind(null, /*! ./modules/getElements */ \"./app/modules/getElements.js\", 7)).then(function (module) {\n      module.default(value);\n    });\n  }\n}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),\n\t\t\t\t__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));\n\n//# sourceURL=webpack:///./app/index.js?");
+eval("var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(/*! ./views/insertheader */ \"./app/views/insertheader.js\"), __webpack_require__(/*! ./constants */ \"./app/constants.js\"), __webpack_require__(/*! ./jsonFile.json */ \"./app/jsonFile.json\"), __webpack_require__(/*! ../styles/reset.css */ \"./styles/reset.css\"), __webpack_require__(/*! ../styles/style.scss */ \"./styles/style.scss\")], __WEBPACK_AMD_DEFINE_RESULT__ = (function (_insertheader, _constants, _jsonFile) {\n  \"use strict\";\n\n  var _insertheader2 = _interopRequireDefault(_insertheader);\n\n  var _constants2 = _interopRequireDefault(_constants);\n\n  var _jsonFile2 = _interopRequireDefault(_jsonFile);\n\n  function _interopRequireDefault(obj) {\n    return obj && obj.__esModule ? obj : {\n      default: obj\n    };\n  }\n\n  console.log(_jsonFile2.default);\n  _constants2.default.FORM.onsubmit = searchAndLoadBundle;\n\n  function searchAndLoadBundle(event) {\n    var value;\n\n    if (event) {\n      event.preventDefault();\n    }\n\n    value = this['0'].value;\n    Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(1)]).then(__webpack_require__.t.bind(null, /*! ./controllers/getElements */ \"./app/controllers/getElements.js\", 7)).then(function (module) {\n      module.default(value);\n    });\n  }\n}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),\n\t\t\t\t__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));\n\n//# sourceURL=webpack:///./app/index.js?");
 
 /***/ }),
 
@@ -221,25 +232,14 @@ eval("module.exports = {\"name\":\"Mikalai\",\"second name\":\"Kavaliou\"};\n\n/
 
 /***/ }),
 
-/***/ "./app/modules/constants.js":
-/*!**********************************!*\
-  !*** ./app/modules/constants.js ***!
-  \**********************************/
+/***/ "./app/views/insertheader.js":
+/*!***********************************!*\
+  !*** ./app/views/insertheader.js ***!
+  \***********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [exports], __WEBPACK_AMD_DEFINE_RESULT__ = (function (exports) {\n  \"use strict\";\n\n  Object.defineProperty(exports, \"__esModule\", {\n    value: true\n  });\n  var APIKEY = 'b1489445b9fb4d2b98dbf211c114989b';\n  var NEWSCONTAINER = document.querySelector('.news-container');\n  var FORM = document.querySelector('.form');\n  var ERRORWINDOW = document.querySelector('.error-notification');\n  var METHODS = {\n    GET: 'GET',\n    POST: 'POST',\n    PUT: 'PUT'\n  };\n  var STATUS = {\n    ERROR: 'error',\n    SUCCESS: 'ok'\n  };\n  exports.default = {\n    APIKEY: APIKEY,\n    NEWSCONTAINER: NEWSCONTAINER,\n    FORM: FORM,\n    ERRORWINDOW: ERRORWINDOW,\n    METHODS: METHODS,\n    STATUS: STATUS\n  };\n}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),\n\t\t\t\t__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));\n\n//# sourceURL=webpack:///./app/modules/constants.js?");
-
-/***/ }),
-
-/***/ "./app/modules/insertheader.js":
-/*!*************************************!*\
-  !*** ./app/modules/insertheader.js ***!
-  \*************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [exports], __WEBPACK_AMD_DEFINE_RESULT__ = (function (exports) {\n  \"use strict\";\n\n  Object.defineProperty(exports, \"__esModule\", {\n    value: true\n  });\n  var HEADER = document.querySelector('.header');\n\n  var insertHeader = function insertHeader() {\n    var headerHtml = \"\\n            <div class=\\\"wrapper\\\">\\n                <div class=\\\"form-container\\\">\\n                    <form class=\\\"form\\\">\\n                        <input type=\\\"text\\\" placeholder=\\\"abc-news, bbc-news\\\" class=\\\"theme-input\\\">\\n                        <button class=\\\"search-button fas fa-search\\\" type=\\\"submit\\\"></button>\\n                    </form>\\n                    <div class=\\\"error-notification\\\">message</div>\\n                </div>\\n            </div>\";\n    HEADER.innerHTML = headerHtml;\n  };\n\n  exports.default = insertHeader();\n}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),\n\t\t\t\t__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));\n\n//# sourceURL=webpack:///./app/modules/insertheader.js?");
+eval("var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [exports], __WEBPACK_AMD_DEFINE_RESULT__ = (function (exports) {\n  \"use strict\";\n\n  Object.defineProperty(exports, \"__esModule\", {\n    value: true\n  });\n  var HEADER = document.querySelector('.header');\n\n  var insertHeader = function insertHeader() {\n    var headerHtml = \"\\n            <div class=\\\"wrapper\\\">\\n                <div class=\\\"form-container\\\">\\n                    <form class=\\\"form\\\">\\n                        <input type=\\\"text\\\" placeholder=\\\"abc-news, bbc-news\\\" class=\\\"theme-input\\\">\\n                        <button class=\\\"search-button fas fa-search\\\" type=\\\"submit\\\"></button>\\n                    </form>\\n                    <div class=\\\"error-notification\\\">message</div>\\n                </div>\\n            </div>\";\n    HEADER.innerHTML = headerHtml;\n  };\n\n  exports.default = insertHeader();\n}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),\n\t\t\t\t__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));\n\n//# sourceURL=webpack:///./app/views/insertheader.js?");
 
 /***/ }),
 
