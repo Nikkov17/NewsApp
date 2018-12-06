@@ -19,7 +19,8 @@ export default async function getElements(value) {
         }
     } catch {
         import('./errornotification').then((module) => {
-            module.default.errorNotification();
+            const errorSingleton = module.default;
+            errorSingleton.errorNotification();
         })
     }
 };

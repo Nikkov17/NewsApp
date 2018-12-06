@@ -7,4 +7,6 @@ class ErrorsHandler {
     };
 }
 
-export default new ErrorsHandler();
+const errorMessage = new ErrorsHandler();
+
+export default errorMessage;
