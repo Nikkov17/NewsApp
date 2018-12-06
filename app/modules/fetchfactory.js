@@ -1,12 +1,17 @@
 import constants from './constants.js';
 
 export default function fetchFactory(type, body){
-    const requestObject = {method: type};
-
-    if (type === constants.METHODS.POST) {
-        requestObject.header = new Headers();
-        requestObject.body = body;
+    switch(type) {
+        case constants.METHODS.GET: return {
+            method: constants.METHODS.GET
+        };
+        case constants.METHODS.POST: return {
+            method: constants.METHODS.POST,
+            header: new Headers(),
+            body: body
+        };
+        case constants.METHODS.PUT: return {
+            method: constants.METHODS.PUT
+        };
     }
-
-    return requestObject;
-} 
+}
