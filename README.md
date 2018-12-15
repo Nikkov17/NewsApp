@@ -1,1 +1,0 @@
-github pages link: https://nikkov17.github.io/NewsApp/
