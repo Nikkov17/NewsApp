@@ -68,8 +68,8 @@ db.airlines.aggregate([
     { "$project": {"_id": 0, "location": {"state": "$_id"}, "maxPassengers": "$maxPassengers"}}, 
 ])
 result:
-    { "passengers" : 35021, "location" : { "state" : "Alabama" } }
-    { "passengers" : 88556, "location" : { "state" : "Alaska" } }
-    { "passengers" : 54071, "location" : { "state" : "Arizona" } }
-    { "passengers" : 24661, "location" : { "state" : "Arkansas" } }
-    { "passengers" : 82575, "location" : { "state" : "California" } }
+    { "location" : { "state" : "Alabama" }, "maxPassengers" : 1520240 }
+    { "location" : { "state" : "Alaska" }, "maxPassengers" : 2944808 }
+    { "location" : { "state" : "Arizona" }, "maxPassengers" : 26305506 }
+    { "location" : { "state" : "Arkansas" }, "maxPassengers" : 1142904 }
+    { "location" : { "state" : "California" }, "maxPassengers" : 47403112 }
