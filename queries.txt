@@ -46,8 +46,7 @@ db.airlines.aggregate([
     }},
     { "$group": {"_id": "$carrier", total: {$sum: "$passengers"}} },
     { $limit: 10},
-    { $sort: {"_id": -1}},
-    { $limit: 7},
+    { "$skip": 3},
     { "$project": {"_id": 1, total: 1}}
 ])
 result:
@@ -62,10 +61,11 @@ result:
 5)
 db.airlines.aggregate([
     { "$match": {"originCountry": "United States"}},
-    { "$group": {"_id": {state: "$originState"}, passengers:{$max: "$passengers"}}},
+    { "$group": {"_id": {state: "$originState", city: "$originCity"}, passengers:{$sum: "$passengers"}}},
+    { "$group": {"_id": "$_id.state", maxPassengers:{$max: "$passengers"}}},
     { "$sort": {"_id": 1}},
     { "$limit": 5},
-    { "$project": {"_id": 0, "location": "$_id", "passengers": 1, originCity: 1}}, 
+    { "$project": {"_id": 0, "location": {"state": "$_id"}, "maxPassengers": "$maxPassengers"}}, 
 ])
 result:
     { "passengers" : 35021, "location" : { "state" : "Alabama" } }
