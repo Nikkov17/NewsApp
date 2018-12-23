@@ -61,16 +61,23 @@ result:
 
 5)
 db.airlines.aggregate([
-    { "$match": {"originCountry": "United States"}},
-    { "$group": {"_id": {state: "$originState", city: "$originCity"}, passengers:{$sum: "$passengers"}}},
-    { "$group": {"_id": "$_id.state", maxPassengers:{$max: "$passengers"}}},
-    { "$sort": {"_id": 1}},
-    { "$limit": 5},
-    { "$project": {"_id": 0, "location": {"state": "$_id"}, "maxPassengers": "$maxPassengers"}}, 
+    {"$match": {originCountry: "United States"}},
+    {$group: {_id:  {state: "$originState", city: "$originCity"},passengers: {$sum: "$passengers"}}},
+    {$group: {_id: "$_id.state",citiesPassengers: {$addToSet: {"city": "$_id.city","passengers": "$passengers"}},maxPassengers: {$max: "$passengers"}}},
+    {$project: {citiesWithMaxPassengers: {$filter: {
+                    input: "$citiesPassengers",
+                    as: "city",
+                    cond: {
+                        "$eq": ["$$city.passengers", "$maxPassengers"]
+    }}}}},
+    {$sort: {_id: 1}},
+    {$unwind: "$citiesWithMaxPassengers"},
+    {$limit: 5},
+    {$project: {_id: 0,totalPassengers: "$citiesWithMaxPassengers.passengers",location: {state: "$_id",city: "$citiesWithMaxPassengers.city"}}},
 ])
 result:
-    { "location" : { "state" : "Alabama" }, "maxPassengers" : 1520240 }
-    { "location" : { "state" : "Alaska" }, "maxPassengers" : 2944808 }
-    { "location" : { "state" : "Arizona" }, "maxPassengers" : 26305506 }
-    { "location" : { "state" : "Arkansas" }, "maxPassengers" : 1142904 }
-    { "location" : { "state" : "California" }, "maxPassengers" : 47403112 }
+    { "totalPassengers" : 1520240, "location" : { "state" : "Alabama", "city" : "Birmingham, AL" } }
+    { "totalPassengers" : 2944808, "location" : { "state" : "Alaska", "city" : "Anchorage, AK" } }
+    { "totalPassengers" : 26305506, "location" : { "state" : "Arizona", "city" : "Phoenix, AZ" } }
+    { "totalPassengers" : 1142904, "location" : { "state" : "Arkansas", "city" : "Little Rock, AR" } }
+    { "totalPassengers" : 47403112, "location" : { "state" : "California", "city" : "Los Angeles, CA" } }
