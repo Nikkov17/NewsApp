@@ -12,14 +12,15 @@ db.airlines.aggregate([
 2)
 db.airlines.aggregate([
     { $match: { destCountry: { $ne: 'United States'} } },
-    { $sort: { passengers: -1 } },
+    {$group: { _id: "$destCity", avgPassengers: {$avg: "$passengers"}}},
+    { $sort: { avgPassengers: -1 } },
     { $limit: 3},
-    { "$project": {_id: 0, passengers:1, destCity:1}}
+    { "$project": {_id: 0, avgPassengers:1, destCity:"$_id"}}
 ])
 result:
-    { "passengers" : 54390, "destCity" : "London, United Kingdom" }
-    { "passengers" : 53509, "destCity" : "London, United Kingdom" }
-    { "passengers" : 51793, "destCity" : "London, United Kingdom" }
+    { "avgPassengers" : 8052.380952380952, "destCity" : "Abu Dhabi, United Arab Emirates" }
+    { "avgPassengers" : 7176.596638655462, "destCity" : "Dubai, United Arab Emirates" }
+    { "avgPassengers" : 7103.333333333333, "destCity" : "Guangzhou, China" }
 
 3) 
 db.airlines.aggregate([
