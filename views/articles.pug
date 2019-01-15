@@ -1,0 +1,9 @@
+html
+	head
+		title= 'Articles'
+	body
+		ul
+			each item in articles
+				li
+					a(href= '/articles/' + item.id)= item.title
+		script(src='/js/articles.js')
