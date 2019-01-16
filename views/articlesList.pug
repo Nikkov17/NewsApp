@@ -5,5 +5,12 @@ html
 		ul
 			each item in articles
 				li
-					a(href= '/articlesList/' + item.id)= item.title
+					a(href= '/articlesList/' + item.title)= item.title
+		div
+			span='Enter title for new article: '
+			input(type='text' class='newArticleTitle')
+		div
+			span='Enter text of the new article: '
+			input(type='text' class='newArticleText')
+		button(class='newArticleButton')= 'Add'
 		script(src='/js/articlesListController.js')
