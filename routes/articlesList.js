@@ -20,16 +20,25 @@ router.get('/:title', (req, res, next) => {
 });
 
 
-router.put('/:id', function(req, res, next) {
-	articlesArray.push(req.body);
+router.put('/:title', function(req, res, next) {
+	let sameArticles = articlesArray.find((el) => {return el.title === req.body.title});
+
+	if (sameArticles) {
+		res.status(400).send('Please, use unique title for the articles!');;
+	} else {
+		articlesArray.push(req.body);
+		fs.writeFileSync('./src/json/articles.json', JSON.stringify(articlesArray));
+		next();
+	}
+});
+
+router.delete('/:title', function(req, res, next) {
+	articlesArray = articlesArray.filter((el) => {return el.title !== req.params.title});
 	fs.writeFileSync('./src/json/articles.json', JSON.stringify(articlesArray));
-	next();
+	res.redirect('/articles');
 });
 
 router.post('/', function(req, res, next) {
-});
-
-router.delete('/:id', function(req, res, next) {
 });
 
 module.exports = router;
