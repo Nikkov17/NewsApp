@@ -16,7 +16,7 @@ let articlesArray = [
 ];
 
 router.get('/', function(req, res) {
-	res.render('articles', { articles: articlesArray});
+	res.render('articlesList', { articles: articlesArray});
 });
 
 router.get('/:id', function(req, res) {
