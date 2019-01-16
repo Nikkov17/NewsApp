@@ -9,6 +9,7 @@ app.set('view engine', 'pug');
 app.set('views', './views/');
 
 app.use(express.static(path.join(__dirname, 'src')));
+app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname + '/index.html'));

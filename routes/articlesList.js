@@ -1,19 +1,9 @@
 let express = require('express');
 let router = express.Router();
-let bodyParser = require('body-parser');
+let fs = require('fs');
 
-let articlesArray = [
-	{
-		id: 'article1',
-		title: 'article1',
-		text: 'this is the first article.'
-	},
-	{
-		id: 'article2',
-		title: 'article2',
-		text: 'this is the seconde article.'
-	}
-];
+let data = fs.readFileSync('./src/json/articles.json', 'utf8');
+let articlesArray = JSON.parse(data);
 
 router.get('/', function(req, res) {
 	res.render('articlesList', { articles: articlesArray});
