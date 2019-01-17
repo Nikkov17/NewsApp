@@ -17,4 +17,11 @@ html
 			span='Enter title of an article you want to delete: '
 			input(type='text' class='deleteArticleTitle')
 		button(class='deleteArticleButton')= 'Delete'
+		div
+			span='Enter title of an article you wanna update: '
+			input(type='text' class='updateArticleTitle')
+		div
+			span='Enter new text for this article: '
+			input(type='text' class='updateArticleText')
+		button(class='updateArticleButton')= 'Update'
 		script(src='/js/articlesListController.js')

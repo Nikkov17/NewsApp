@@ -38,7 +38,16 @@ router.delete('/:title', function(req, res, next) {
 	res.redirect('/articles');
 });
 
-router.post('/', function(req, res, next) {
+router.post('/:title', function(req, res, next) {
+	let element = articlesArray.find((el) => {
+		return el.title === req.body.title;
+	})
+
+	if (element) {
+		element.text = req.body.text;
+		fs.writeFileSync('./src/json/articles.json', JSON.stringify(articlesArray));
+	}
+	next();
 });
 
 module.exports = router;

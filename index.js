@@ -11,6 +11,9 @@ app.set('views', './views/');
 
 app.use(express.static(path.join(__dirname, 'src')));
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
 app.use((req, res, next) => {
 	logger.info(`Url: ${req.url}, Date: ${(new Date()).toLocaleTimeString()}`);
 	next();
