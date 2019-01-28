@@ -3,8 +3,11 @@ let path = require('path');
 let bodyParser = require('body-parser');
 let pug = require('pug');
 let logger = require('./src/js/logger');
+let mongoose = require('mongoose');
 
 let app = express();
+
+mongoose.connect('mongodb://localhost/frontcamp', { useNewUrlParser: true });
 
 app.set('view engine', 'pug');
 app.set('views', './views/');

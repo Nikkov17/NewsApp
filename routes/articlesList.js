@@ -1,53 +1,61 @@
 let express = require('express');
 let router = express.Router();
-let fs = require('fs');
 
-let data = fs.readFileSync('./src/json/articles.json', 'utf8');
-let articlesArray = JSON.parse(data);
+let articlesModel = require('../src/js/articlesModel');
 
 router.get('/', (req, res) => {
-	res.render('articlesList', { articles: articlesArray});
+	articlesModel.find({}, (error, articlesArray) => {
+		res.render('articlesList', {articles: articlesArray})
+	});
 });
 router.get('/:title', (req, res, next) => {
 	let title = req.params.title;
-    let article = articlesArray.find((el) => {return el.title === title});
 
-	if (article) {
-		res.render('article', {article: article});
-	} else {
-		next();
-	};
+	articlesModel.findOne({'title': title}, (error, article) => {
+		if (article) {
+			res.render('article', {article: article})
+		} else {
+			next();
+		};
+	});
 });
 
 
 router.put('/:title', function(req, res, next) {
-	let sameArticles = articlesArray.find((el) => {return el.title === req.body.title});
+	articlesModel.findOne({'title': req.body.title}, (error, article) => {
+		if (article) {
+			res.status(400).send('Please, use unique title for the articles!');
+		} else {
+			let article = new articlesModel({
+				title: req.body.title,
+				text: req.body.text
+			});
 
-	if (sameArticles) {
-		res.status(400).send('Please, use unique title for the articles!');;
-	} else {
-		articlesArray.push(req.body);
-		fs.writeFileSync('./src/json/articles.json', JSON.stringify(articlesArray));
-		next();
-	}
+			article.save()
+				.then(() => {
+					res.redirect('/articles');
+				})
+				.catch((err) => {
+					console.log(err);
+				});
+		}
+	});
 });
 
 router.delete('/:title', function(req, res, next) {
-	articlesArray = articlesArray.filter((el) => {return el.title !== req.params.title});
-	fs.writeFileSync('./src/json/articles.json', JSON.stringify(articlesArray));
-	res.redirect('/articles');
+	let title = req.params.title;
+
+	articlesModel.deleteMany({'title': title}, () => {
+		res.redirect('/articles');
+	});
 });
 
 router.post('/:title', function(req, res, next) {
-	let element = articlesArray.find((el) => {
-		return el.title === req.body.title;
-	})
+	let title = req.body.title;
+	let text = req.body.text;
 
-	if (element) {
-		element.text = req.body.text;
-		fs.writeFileSync('./src/json/articles.json', JSON.stringify(articlesArray));
-	}
-	next();
+	articlesModel.update({'title': title}, {'title': title, 'text': text});
+	res.redirect('/articles');
 });
 
 module.exports = router;
