@@ -1,10 +1,18 @@
 let express = require('express');
 let router = express.Router();
 
-let articlesModel = require('../src/js/articlesModel');
+let articlesModel = require('../src/models/articlesModel');
+
+function isLoggedIn(req, res, next){
+	if (req.isAuthenticated()) {
+		return next();
+	} else {
+		res.redirect('/users/login');
+	}
+}
 
 //routing
-router.get('/', (req, res) => {
+router.get('/', isLoggedIn, (req, res) => {
 	articlesModel.find({}, (error, articlesArray) => {
 		res.render('articlesList', {articles: articlesArray})
 	});

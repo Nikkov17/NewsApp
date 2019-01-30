@@ -7,6 +7,7 @@ let mongoose = require('mongoose');
 let session = require('express-session');
 let passport = require('passport');
 let LocalStrategy = require('passport-local').Strategy;
+let usersModel = require('./src/models/usersModel');
 
 let app = express();
 
@@ -33,15 +34,18 @@ app.use((req, res, next) => {
 });
 
 //session
-// app.use(session({
-//     secret: '',
-//     saveUninitialized: true,
-//     resave: true
-// }));
+app.use(session({
+    secret: 'secret',
+    saveUninitialized: true,
+    resave: true
+}));
 
 //passport
 app.use(passport.initialize());
 app.use(passport.session());
+passport.use(new LocalStrategy(usersModel.authenticate()));
+passport.serializeUser(usersModel.serializeUser());
+passport.deserializeUser(usersModel.deserializeUser());
 
 //routing
 app.get('/', (req, res) => {
