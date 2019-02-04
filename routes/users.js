@@ -22,6 +22,17 @@ router.get('/logout', function(req, res){
     res.redirect('/');
 });
 
+//facebook registration
+router.get('/users/facebook', 
+  passport.authenticate('facebook')
+);
+
+router.get('/users/facebook/callback',
+  passport.authenticate('facebook', { failureRedirect: '/login' }),
+  function(req, res) {
+    res.redirect('/');
+});
+
 //registration
 router.post('/register', function(req, res) {
     usersModel.register(new usersModel({ username: req.body.username }), req.body.password, function(err, user){
